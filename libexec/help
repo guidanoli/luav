@@ -16,7 +16,7 @@ then
 		exit 1
 	fi
 
-	sed -ne 's/^# \(Usage: .*\)$/\1/ p' "libexec/$command"
+	sed -ne 's/^# \(Usage: .*\)$/\1/ p ; s/^# \(Hint: .*\)$/\1/ p' "libexec/$command"
 else
 	echo "Usage: luaver <command> [<args>]"
 	echo "       luaver help <command>"

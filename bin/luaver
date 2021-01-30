@@ -3,6 +3,9 @@
 # Exit on error
 set -e
 
+# Print usage information
+usage() { libexec/help "$(basename ${BASH_SOURCE[1]})" && exit 1; }
+
 # Get command
 if [[ $# -ge 1 ]]
 then
