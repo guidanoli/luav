@@ -1,1 +1,31 @@
 #!/usr/bin/env bash
+#
+# Summary: Prints information about commands
+#
+# Usage: luaver help [<command>]
+#
+
+if [[ $# -ge 1 ]]
+then
+	command=$1
+	shift
+
+	if [[ ! -f libexec/$command ]]
+	then
+		echo "Command '$command' doesn't exist" 2>&1
+		exit 1
+	fi
+
+	sed -ne 's/^# \(Usage: .*\)$/\1/ p' "libexec/$command"
+else
+	echo "Usage: luaver <command> [<args>]"
+	echo ""
+	echo "Available commands:"
+
+	maxcommandlength=$(ls -I '*~' -1 libexec | wc -L)
+
+	for command in $(ls -I '*~' -1 libexec)
+	do
+		printf "  %${maxcommandlength}s  %s\n" "$command" "$(sed -ne 's/^# Summary: // p' "libexec/$command")"
+	done
+fi

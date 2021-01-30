@@ -1,1 +1,32 @@
 #!/usr/bin/env bash
+
+# Exit on error
+set -e
+
+# Get command
+if [[ $# -ge 1 ]]
+then
+	command=$1
+	shift
+else
+	command=help
+fi
+
+# Change directory to root
+cd "$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")")"
+
+# Check that command is valid
+if echo "$command" | grep -q '[^a-z-]'
+then
+	echo "Command '$command' is invalid" 2>&1
+	exit 1
+fi
+
+# Check that command exists
+if [[ -f libexec/$command ]]
+then
+	source libexec/$command
+else
+	echo "Command '$command' doesn't exist" 2>&1
+	exit 1
+fi

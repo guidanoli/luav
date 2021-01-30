@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Summary: Lists all downloaded versions of Lua
+#
+# Usage: luaver list
+#
+
+if [[ -d versions ]]
+then
+	ls -1 versions
+fi
