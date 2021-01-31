@@ -6,6 +6,7 @@ This toolkit helps manage different versions of Lua.
 
 1. Clone this repository anywhere
 2. Add the `bin` folder to your `PATH` variable
+3. Run `eval $(luaver init)` for autocomplete support
 
 ## Usage
 
@@ -16,8 +17,11 @@ Usage: luaver <command> [<args>]
        luaver help
 
 Available commands:
+   cmds  Lists all available commands
+   comp  Prints completion data
     get  Download a specific version of Lua
    help  Prints information about commands
+   init  Prints sourceable data to initialize luaver
    list  Lists all downloaded versions of Lua
    make  Run make for a specific version of Lua
     set  Set Lua version as default

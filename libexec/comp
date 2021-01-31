@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Summary: Prints completion data
+#
+# Usage: luaver comp <command> [<args>]
+#
+
+if [[ $# -ge 1 ]]
+then
+	command=$1
+	shift
+else
+	usage
+fi
+
+if [[ $# -eq 0 ]]
+then
+	case "$command" in
+	get | set | unset | make )
+		libexec/list
+		;;
+	help )
+		libexec/cmds
+		;;
+	esac
+fi

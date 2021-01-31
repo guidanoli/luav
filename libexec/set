@@ -15,7 +15,7 @@ fi
 
 if [[ ! -d versions/$version ]]
 then
-	echo "Version $version not found" 2>&1
+	echo "Version '$version' not found" 2>&1
 	echo "Hint: luaver get $version" 2>&1
 	exit 1
 fi

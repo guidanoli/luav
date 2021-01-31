@@ -26,12 +26,11 @@ then
 fi
 
 # Check that command exists
-if [[ -f libexec/$command ]]
+if [[ ! -f libexec/$command ]]
 then
-	source libexec/$command
-else
 	echo "Command '$command' doesn't exist" 2>&1
 	echo ""
-	bin/luaver help
-	exit 1
+	command=help
 fi
+
+source libexec/$command

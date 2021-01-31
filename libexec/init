@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Summary: Prints sourceable data to initialize luaver
+#
+# Usage: eval "$(luaver init)"
+#
+
+shell=$(ps -hp $$ | awk '{print $5}')
+shellfile=libexec/completions/luaver.$shell
+
+if [[ -f $shellfile ]]
+then
+	echo "source \"$shellfile\""
+else
+	echo "echo \"luaver: found no completion for '$shell' shell\" 2>&1"
+fi

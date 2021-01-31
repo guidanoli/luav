@@ -24,10 +24,10 @@ else
 	echo ""
 	echo "Available commands:"
 
-	maxcommandlength=$(ls -I '*~' -1 libexec | wc -L)
+	maxcmdlength=$(find libexec -maxdepth 1 -type f -regex 'libexec/[a-z-]*' | xargs -n1 basename | wc -L)
 
-	for command in $(ls -I '*~' -1 libexec)
+	for cmdfile in $(find libexec -maxdepth 1 -type f -regex 'libexec/[a-z-]*' | sort)
 	do
-		printf "  %${maxcommandlength}s  %s\n" "$command" "$(sed -ne 's/^# Summary: // p' "libexec/$command")"
+		printf "  %${maxcmdlength}s  %s\n" "$(basename "$cmdfile")" "$(sed -ne 's/^# Summary: // p' "$cmdfile")"
 	done
 fi

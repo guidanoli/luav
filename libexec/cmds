@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Summary: Lists all available commands
+#
+# Usage: luaver commands
+#
+
+find libexec -maxdepth 1 -type f -regex 'libexec/[a-z-]*' | xargs -n1 basename
