@@ -31,5 +31,7 @@ then
 	source libexec/$command
 else
 	echo "Command '$command' doesn't exist" 2>&1
+	echo ""
+	bin/luaver help
 	exit 1
 fi
