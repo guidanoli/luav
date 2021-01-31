@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Prints sourceable data to initialize luaver
+# Summary: Prints luaver initialization code
 #
 # Usage: eval "$(luaver init)"
 #

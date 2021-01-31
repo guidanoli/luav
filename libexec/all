@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Lists all available Lua versions
+# Summary: Lists all available versions of Lua
 #
 # Usage: luaver all
 #

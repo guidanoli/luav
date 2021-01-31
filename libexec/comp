@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Prints completion data
+# Summary: Prints completion options for a command
 #
 # Usage: luaver comp <command> [<args>]
 #

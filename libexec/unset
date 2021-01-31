@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Summary: Unset Lua version as default
+# Summary: Unsets a Lua version as default
 #
 # Usage: luaver unset <version>
 #
