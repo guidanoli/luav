@@ -17,6 +17,7 @@ Usage: luaver <command> [<args>]
        luaver help
 
 Available commands:
+    all  Lists all available Lua versions
    cmds  Lists all available commands
    comp  Prints completion data
     get  Download a specific version of Lua
