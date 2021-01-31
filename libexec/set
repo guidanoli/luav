@@ -20,4 +20,4 @@ then
 	exit 1
 fi
 
-sudo make -C "versions/$version" install
+sudo make -C "versions/$version" install -s

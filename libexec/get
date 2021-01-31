@@ -14,5 +14,5 @@ else
 fi
 
 mkdir -p versions
-curl -s "http://www.lua.org/ftp/lua-$version.tar.gz" | tar xz --transform='s/^lua-//'
+curl -s "http://www.lua.org/ftp/lua-$version.tar.gz" | tar xz --transform='s/^lua-//' -C versions
 sed 's/^CFLAGS.*/\0 \$(LUAVERCFLAGS)/' -i "versions/$version/src/Makefile"
