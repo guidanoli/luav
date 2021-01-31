@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Summary: Lists all available Lua versions
+#
+# Usage: luaver all
+#
+
+curl -s https://www.lua.org/ftp/ | sed -nEe 's/.*lua-([0-9.]+)\.tar\.gz.*/\1/ p' | sort -u

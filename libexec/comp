@@ -16,7 +16,10 @@ fi
 if [[ $# -eq 0 ]]
 then
 	case "$command" in
-	get | set | unset | make )
+	get )
+		libexec/all
+		;;
+	set | unset | make )
 		libexec/list
 		;;
 	help )
