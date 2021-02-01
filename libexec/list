@@ -7,5 +7,5 @@
 
 if [[ -d versions ]]
 then
-	ls -1 versions
+	ls -1 -r versions
 fi
