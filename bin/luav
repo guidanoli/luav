@@ -21,7 +21,7 @@ cd "$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")")"
 # Check that command is valid
 if echo "$command" | grep -q '[^a-z-]'
 then
-	echo "Command '$command' is invalid" 2>&1
+	echo "Command '$command' is invalid"
 	echo ""
 	command=help
 fi
@@ -29,7 +29,7 @@ fi
 # Check that command exists
 if [[ ! -f libexec/$command ]]
 then
-	echo "Command '$command' doesn't exist" 2>&1
+	echo "Command '$command' doesn't exist"
 	echo ""
 	command=help
 fi

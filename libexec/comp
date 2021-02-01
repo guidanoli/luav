@@ -26,4 +26,14 @@ then
 		libexec/cmds
 		;;
 	esac
+elif [[ $# -eq 1 ]]
+then
+	case "$command" in
+	make )
+		if libexec/list | grep -q "^$1$"
+		then
+			awk -F ':' '/^[a-z]+:/ { print $1 }' versions/$1/Makefile
+		fi
+		;;
+	esac	
 fi
