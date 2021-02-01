@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 #
-# Summary: Prints luaver initialization code
+# Summary: Prints luav initialization code
 #
-# Usage: eval "$(luaver init)"
+# Usage: eval "$(luav init)"
 #
 
 shell=$(ps -hp $$ | awk '{print $5}')
-shellfile=libexec/completions/luaver.$shell
+shellfile=libexec/completions/luav.$shell
 
 if [[ -f $shellfile ]]
 then
 	echo "source \"$PWD/$shellfile\""
 else
-	echo "echo \"luaver: found no completion for '$shell' shell\" 2>&1"
+	echo "echo \"luav: found no completion for '$shell' shell\" 2>&1"
 fi

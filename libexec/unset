@@ -2,7 +2,7 @@
 # 
 # Summary: Unsets a Lua version as default
 #
-# Usage: luaver unset <version>
+# Usage: luav unset <version>
 #
 # Hint: Some older versions of Lua don't support this feature
 #
@@ -18,7 +18,7 @@ fi
 if [[ ! -d versions/$version ]]
 then
 	echo "Version '$version' not found" 2>&1
-	echo "Hint: luaver get $version" 2>&1
+	echo "Hint: luav get $version" 2>&1
 	exit 1
 fi
 

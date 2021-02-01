@@ -2,7 +2,7 @@
 # 
 # Summary: Sets a Lua version as default
 #
-# Usage: luaver set <version>
+# Usage: luav set <version>
 #
 
 if [[ $# -ge 1 ]]
@@ -16,7 +16,7 @@ fi
 if [[ ! -d versions/$version ]]
 then
 	echo "Version '$version' not found" 2>&1
-	echo "Hint: luaver get $version" 2>&1
+	echo "Hint: luav get $version" 2>&1
 	exit 1
 fi
 

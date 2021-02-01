@@ -2,7 +2,7 @@
 #
 # Summary: Lists all downloaded versions of Lua
 #
-# Usage: luaver list
+# Usage: luav list
 #
 
 if [[ -d versions ]]

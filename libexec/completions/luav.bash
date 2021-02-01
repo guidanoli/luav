@@ -1,16 +1,16 @@
-_luaver() {
+_luav() {
   COMPREPLY=()
   local word="${COMP_WORDS[COMP_CWORD]}"
 
   if [ "$COMP_CWORD" -eq 1 ]; then
-    COMPREPLY=( $(compgen -W "$(luaver cmds)" -- "$word") )
+    COMPREPLY=( $(compgen -W "$(luav cmds)" -- "$word") )
   else
     local words=("${COMP_WORDS[@]}")
     unset words[0]
     unset words[$COMP_CWORD]
-    local completions=$(luaver comp "${words[@]}")
+    local completions=$(luav comp "${words[@]}")
     COMPREPLY=( $(compgen -W "$completions" -- "$word") )
   fi
 }
 
-complete -F _luaver luaver
+complete -F _luav luav

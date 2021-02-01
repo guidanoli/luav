@@ -2,7 +2,7 @@
 #
 # Summary: Download a specific version of Lua
 #
-# Usage: luaver get <version>
+# Usage: luav get <version>
 #
 
 if [[ $# -ge 1 ]]

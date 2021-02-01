@@ -2,7 +2,7 @@
 #
 # Summary: Prints completion options for a command
 #
-# Usage: luaver comp <command> [<args>]
+# Usage: luav comp <command> [<args>]
 #
 
 if [[ $# -ge 1 ]]

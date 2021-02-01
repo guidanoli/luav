@@ -2,7 +2,7 @@
 #
 # Summary: Prints information about commands
 #
-# Usage: luaver help [<command>]
+# Usage: luav help [<command>]
 #
 
 if [[ $# -ge 1 ]]
@@ -18,9 +18,9 @@ then
 
 	sed -ne 's/^# \(Usage: .*\)$/\1/ p ; s/^# \(Hint: .*\)$/\1/ p' "libexec/$command"
 else
-	echo "Usage: luaver <command> [<args>]"
-	echo "       luaver help <command>"
-	echo "       luaver help"
+	echo "Usage: luav <command> [<args>]"
+	echo "       luav help <command>"
+	echo "       luav help"
 	echo ""
 	echo "Available commands:"
 

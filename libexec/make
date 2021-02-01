@@ -2,7 +2,7 @@
 # 
 # Summary: Run make for a specific version of Lua
 #
-# Usage: luaver make <version> [<targets-and-flags>]
+# Usage: luav make <version> [<targets-and-flags>]
 #
 # Hint: You can customize your compilation by setting the CFLAGS environment variable
 #
@@ -18,7 +18,7 @@ fi
 if [[ ! -d versions/$version ]]
 then
 	echo "Version '$version' not found" 2>&1
-	echo "Hint: luaver get $version" 2>&1
+	echo "Hint: luav get $version" 2>&1
 	exit 1
 fi
 

@@ -2,7 +2,7 @@
 #
 # Summary: Lists all available versions of Lua
 #
-# Usage: luaver all
+# Usage: luav all
 #
 
 curl -s https://www.lua.org/ftp/ | sed -nEe 's/.*lua-([0-9.]+)\.tar\.gz.*/\1/ p' | sort -u
