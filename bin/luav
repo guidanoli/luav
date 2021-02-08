@@ -16,7 +16,7 @@ else
 fi
 
 # Change directory to root
-cd "$(dirname "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")")"
+cd "${BASH_SOURCE%/*}/.."
 
 # Check that command is valid
 if echo "$command" | grep -q '[^a-z-]'

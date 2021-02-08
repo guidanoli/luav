@@ -4,7 +4,7 @@ This toolkit helps manage different versions of Lua.
 
 ## Dependencies
 
-bash, compgen, curl, readlink, md5sum, sudo, tar and UNIX commands
+bash, compgen, curl, sudo, tar and UNIX commands
 
 ## Setup
 

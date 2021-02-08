@@ -28,8 +28,18 @@ then
 fi
 
 file=lua-$version.tar.gz
-curl -R -O "http://www.lua.org/ftp/$file"
-libexec/info | awk -v "FILE=$file" '$1 == FILE { print $2, $1 }' | md5sum -c
+curl -s -R -O "http://www.lua.org/ftp/$file"
+
+if command -v md5sum > /dev/null
+then
+	libexec/info | awk -v "FILE=$file" '$1 == FILE { print $3, $1 }' | md5sum -c --quiet
+fi
+
+if command -v sha1sum > /dev/null
+then
+	libexec/info | awk -v "FILE=$file" '$1 == FILE { print $2, $1 }' | sha1sum -c --quiet
+fi
+
 tmpdir=$(mktemp -d)
 tar zxf "$file" -C "$tmpdir"
 rm -rf "versions/$version"
