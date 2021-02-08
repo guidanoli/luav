@@ -5,4 +5,4 @@
 # Usage: luav all
 #
 
-curl -s https://www.lua.org/ftp/ | sed -nEe 's/.*lua-([0-9.]+)\.tar\.gz.*/\1/ p' | sort -u -r
+libexec/info | awk '{ print $1 }' | sed -nEe 's/^lua-([0-9.]+)\.tar\.gz$/\1/ p'

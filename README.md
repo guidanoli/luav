@@ -17,16 +17,19 @@ Usage: luav <command> [<args>]
        luav help
 
 Available commands:
-    all  Lists all available versions of Lua
-   cmds  Lists all available commands
-   comp  Prints completion options for a command
-    get  Download a specific version of Lua
-   help  Prints information about commands
-   init  Prints luav initialization code
-   list  Lists all downloaded versions of Lua
-   make  Run make for a specific version of Lua
-    set  Sets a Lua version as default
-  unset  Unsets a Lua version as default
+     all  Lists all available versions of Lua
+    cmds  Lists all available commands
+    comp  Prints completion options for a command
+     get  Download a specific version of Lua
+    help  Prints information about commands
+    info  Lists information about all available versions of Lua
+    init  Prints luav initialization code
+    list  Lists all downloaded versions of Lua
+    make  Run make for a specific version of Lua
+      rm  Remove Lua version
+     set  Sets a Lua version as default
+   unset  Unsets a Lua version as default
+  update  Update index
 ```
 
 ## Example

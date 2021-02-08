@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Summary: Lists information about all available versions of Lua
+#
+# Usage: luav info
+#
+
+make versions/.index -s
+cat versions/.index

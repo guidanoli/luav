@@ -14,5 +14,25 @@ else
 fi
 
 mkdir -p versions
-curl -s "http://www.lua.org/ftp/lua-$version.tar.gz" | tar xz --transform='s/^lua-//' -C versions
+
+hasversion() { libexec/all | grep -q "$1" ; }
+
+if ! hasversion "$version"
+then
+	libexec/update
+	if ! hasversion "$version"
+	then
+		echo "Version '$version' not found." 2>&1
+		exit 1
+	fi
+fi
+
+file=lua-$version.tar.gz
+curl -R -O "http://www.lua.org/ftp/$file"
+libexec/info | awk -v "FILE=$file" '$1 == FILE { print $2, $1 }' | md5sum -c
+tmpdir=$(mktemp -d)
+tar zxf "$file" -C "$tmpdir"
+rm -rf "versions/$version"
+mv "$tmpdir/$(ls -1 "$tmpdir")" "versions/$version"
+rm -rf "$tmpdir" "$file"
 sed 's/^CFLAGS.*/\0 \$(LUAVCFLAGS)/' -i "versions/$version/src/Makefile"

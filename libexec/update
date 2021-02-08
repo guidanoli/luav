@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Summary: Update index
+#
+# Usage: luav update
+#
+
+make versions/.index -s -B
