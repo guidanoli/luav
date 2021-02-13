@@ -19,10 +19,10 @@ then
 	get )
 		libexec/all
 		;;
-	set | unset | make )
+	set | unset | make | rm )
 		libexec/list
 		;;
-	help )
+	help | comp )
 		libexec/cmds
 		;;
 	esac
