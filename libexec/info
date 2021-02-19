@@ -5,5 +5,9 @@
 # Usage: luav info
 #
 
-make versions/.index -s
+if [[ ! -f versions/.index ]]
+then
+	libexec/update
+fi
+
 cat versions/.index
