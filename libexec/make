@@ -2,7 +2,7 @@
 # 
 # Summary: Run make for a specific version of Lua
 #
-# Usage: luav make <version> [<targets-and-flags>]
+# Usage: luav make <version> [<options...>]
 #
 # Hint: You can customize your compilation by setting the CFLAGS environment variable
 #

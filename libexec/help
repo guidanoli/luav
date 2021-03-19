@@ -16,7 +16,7 @@ then
 		exit 1
 	fi
 
-	sed -ne 's/^# \(Usage: .*\)$/\1/ p ; s/^# \(Hint: .*\)$/\1/ p' "libexec/$command"
+	awk -f libexec/awk/help.awk "libexec/$command"
 else
 	echo "Usage: luav <command> [<args>]"
 	echo "       luav help <command>"

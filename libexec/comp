@@ -2,7 +2,7 @@
 #
 # Summary: Prints completion options for a command
 #
-# Usage: luav comp <command> [<args>]
+# Usage: luav comp <command> [<args...>]
 #
 
 if [[ $# -ge 1 ]]
@@ -19,7 +19,7 @@ then
 	get )
 		libexec/all
 		;;
-	set | unset | make | rm )
+	set | unset | make | rm | tgts )
 		libexec/list
 		;;
 	help | comp )
@@ -32,7 +32,7 @@ then
 	make )
 		if libexec/list | grep -q "^$1$"
 		then
-			awk -F ':' '/^[a-z-]+:/ { print $1 }' versions/$1/Makefile versions/$1/src/Makefile
+			libexec/tgts "$1"
 		fi
 		;;
 	esac	
