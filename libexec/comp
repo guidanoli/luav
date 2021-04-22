@@ -19,7 +19,7 @@ then
 	get )
 		libexec/all
 		;;
-	set | unset | make | rm | tgts )
+	set | unset | make | rm | tgts | doc )
 		libexec/list
 		;;
 	help | comp )

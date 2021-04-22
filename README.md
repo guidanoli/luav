@@ -24,6 +24,7 @@ Available commands:
      all  Lists all available versions of Lua
     cmds  Lists all available commands
     comp  Prints completion options for a command
+     doc  Read the documentation of a specific Lua Version
      get  Download a specific version of Lua
     help  Prints information about commands
     info  Lists information about all available versions of Lua
@@ -32,6 +33,7 @@ Available commands:
     make  Run make for a specific version of Lua
       rm  Remove Lua version
      set  Sets a Lua version as default
+    tgts  Lists all main targets of a specific version of Lua
    unset  Unsets a Lua version as default
   update  Update index
 ```

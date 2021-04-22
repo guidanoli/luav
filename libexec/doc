@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# 
+# Summary: Read the documentation of a specific Lua Version
+#
+# Usage: luav doc <version>
+#
+# Hint: You can select other browser by setting the BROWSER environment variable
+#
+
+if [[ $# -ge 1 ]]
+then
+	version=$1
+	shift
+else
+	usage
+fi
+
+if [[ ! -d versions/$version ]]
+then
+	echo "Version '$version' not found" 2>&1
+	echo "Hint: luav get $version" 2>&1
+	exit 1
+fi
+
+docs=`find "versions/$version/doc" -name "*.html" -type f | sort`
+
+echo "$docs" | awk '{ printf("[ %d ] %s\n", NR, $0) }'
+read -p "Choose a document to read: " option
+
+nr=`echo "$docs" | wc -l`
+
+if [[ ! -z $option ]]
+then
+	if ! [[ $option =~ ^[0-9]+$ ]]
+	then
+		echo "Input is not a number" 2>&1
+		exit 1
+	fi
+
+	if [[ $option -lt 1 ]] || [[ $option -gt $nr ]]
+	then
+		echo "Input is out of range" 2>&1
+		exit 1
+	fi
+
+	doc=`echo "$docs" | head -"$option" | tail -1`
+	${BROWSER:-firefox} "$doc"
+fi
