@@ -1,6 +1,6 @@
 # Lua Version Selector
 
-![Lua Version Selector](logo.png)
+<img align="left" width="200" src="logo.png">
 
 This toolkit helps manage different versions of Lua.
 
