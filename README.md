@@ -6,6 +6,36 @@ This toolkit helps manage different versions of Lua.
 
 bash, curl, sudo, tar and UNIX commands
 
+## Main features
+
+* Download any version of Lua from `lua.org`. The MD5 and SHA1 sums are checked automatically!
+
+  ```sh
+  luav get <version>
+  ```
+
+* Build from source with any compiler flags
+
+  ```sh
+  [CFLAGS=<flags..>] luav make <version> <targets...>
+  ```
+
+* Install and uninstall versions easily
+
+  ```sh
+  luav set <version>  # make install
+  or
+  luav unset <version>  # make uninstall
+  or
+  luav rm <version>  # remove source code
+  ```
+
+* Read the Lua documentation
+
+  ```sh
+  [BROWSER=<browser>] luav doc <version>
+  ```
+
 ## Setup
 
 1. Clone this repository anywhere
@@ -36,12 +66,4 @@ Available commands:
     tgts  Lists all main targets of a specific version of Lua
    unset  Unsets a Lua version as default
   update  Update index
-```
-
-## Example
-
-```sh
-$ luav get 5.4.2                  # Downloads source code from lua.org
-$ CFLAGS=-fPIC luav make 5.4.2    # Compiles source code with -fPIC
-$ luav set 5.4.2                  # Installs Lua 5.4.2
 ```
