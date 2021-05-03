@@ -9,15 +9,13 @@ and modified for Lua.
 
 ## Main features
 
-* download any version of Lua from [lua.org](lua.org)
-  * New versions are scrapped from [lua.org/ftp](lua.org/ftp).
-  * Checksums downloaded tarballs automatically with [`md5sum`](https://man7.org/linux/man-pages/man1/md5sum.1.html) and [`sha1sum`](https://man7.org/linux/man-pages/man1/sha1sum.1.html)
+* download any version of Lua from [lua.org](https://www.lua.org)
 
+  * all version information is scrapped from [lua.org/ftp](https://lua.org/ftp).
+  * tarballs are checked with [`md5sum`](https://man7.org/linux/man-pages/man1/md5sum.1.html) and [`sha1sum`](https://man7.org/linux/man-pages/man1/sha1sum.1.html)
 
 * build Lua from source with any compiler flags
 * install and uninstall versions
-
-  * Unintalling is supported for Lua 5.2 or later
 
 ## Dependencies
 
