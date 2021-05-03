@@ -1,5 +1,7 @@
 # Lua Version Selector
 
+![Lua Version Selector](logo.png)
+
 This toolkit helps manage different versions of Lua.
 
 ## Dependencies
