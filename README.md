@@ -2,41 +2,27 @@
 
 <img align="right" width="200" src="logo.png">
 
-This toolkit helps manage different versions of Lua.
-
-## Dependencies
-
-bash, curl, sudo, tar and UNIX commands
+luav lets you download, build and install multiple versions of Lua.
+It is meant to be very portable among UNIX-like systems.
+It was also inspired by [pyenv](https://github.com/pyenv/pyenv),
+and modified for Lua.
 
 ## Main features
 
-* Download any version of Lua from `lua.org`. The MD5 and SHA1 sums are checked automatically!
+* download any version of Lua from [lua.org](https://www.lua.org)
 
-  ```sh
-  luav get <version>
-  ```
+  * all version information is scrapped from [lua.org/ftp](https://lua.org/ftp).
+  * tarballs are checked with [`md5sum`](https://man7.org/linux/man-pages/man1/md5sum.1.html) and [`sha1sum`](https://man7.org/linux/man-pages/man1/sha1sum.1.html)
 
-* Build from source with any compiler flags
+* build Lua from source with any compiler flags
+* install and uninstall versions
 
-  ```sh
-  [CFLAGS=<flags..>] luav make <version> <targets...>
-  ```
+## Dependencies
 
-* Install and uninstall versions easily
-
-  ```sh
-  luav set <version>  # make install
-  or
-  luav unset <version>  # make uninstall
-  or
-  luav rm <version>  # remove source code
-  ```
-
-* Read the Lua documentation
-
-  ```sh
-  [BROWSER=<browser>] luav doc <version>
-  ```
+* [bash](https://www.gnu.org/software/bash/)
+* [curl](https://curl.se/)
+* [tar](https://en.wikipedia.org/wiki/Tar_(computing))
+* [sudo](https://www.sudo.ws/)
 
 ## Setup
 
@@ -44,7 +30,7 @@ bash, curl, sudo, tar and UNIX commands
 2. Add the `bin` folder to your `PATH` variable
 3. Run `eval "$(luav init)"` for autocomplete support
 
-## Usage
+## Commands
 
 ```sh
 $ luav help
