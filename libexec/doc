@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Summary: Read the documentation of a specific Lua Version
+# Summary: Browse through the offline documentation of a version of Lua
 #
 # Usage: luav doc <version>
 #
@@ -9,20 +9,14 @@
 
 if [[ $# -ge 1 ]]
 then
+	checklocalversion "$1"
 	version=$1
 	shift
 else
 	usage
 fi
 
-if [[ ! -d versions/$version ]]
-then
-	echo "Version '$version' not found" 2>&1
-	echo "Hint: luav get $version" 2>&1
-	exit 1
-fi
-
-docs=`find "versions/$version/doc" -name "*.html" -type f | sort`
+docs="$(find "versions/$version/doc" -name "*.html" -type f | sort)"
 
 echo "$docs" | awk '{ printf("[ %d ] %s\n", NR, $0) }'
 read -p "Choose a document to read: " option

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Prints luav initialization code
+# Summary: Print initialization code for autocomplete support
 #
 # Usage: eval "$(luav init)"
 #

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Summary: Print the current version of luav
+#
+# Usage: luav version
+#
+
+hardrev="1.1.4"
+gitrev=""
+
+if git remote -v 2>/dev/null | grep -q luav
+then
+	gitrev="$(git describe --tags HEAD 2>/dev/null || true)"
+	gitrev="${gitrev#v}"
+fi
+
+echo "Lua Version Selector ${gitrev:-$hardrev}"

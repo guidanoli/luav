@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Download a specific version of Lua
+# Summary: Download an indexed version of Lua
 #
 # Usage: luav get <version>
 #
@@ -15,16 +15,11 @@ fi
 
 mkdir -p versions
 
-hasversion() { libexec/all | grep -q "$1" ; }
-
 if ! hasversion "$version"
 then
-	libexec/update
-	if ! hasversion "$version"
-	then
-		echo "Version '$version' not found." 2>&1
-		exit 1
-	fi
+	echo "Version '$version' not available" 2>&1
+	echo "Hint: luav update"
+	exit 1
 fi
 
 file=lua-$version.tar.gz

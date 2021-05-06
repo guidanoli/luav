@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Summary: Unsets a Lua version as default
+# Summary: Unset a Lua version as default
 #
 # Usage: luav unset <version>
 #
@@ -9,17 +9,11 @@
 
 if [[ $# -ge 1 ]]
 then
+	checklocalversion "$1"
 	version=$1
 	shift
 else
 	usage
-fi
-
-if [[ ! -d versions/$version ]]
-then
-	echo "Version '$version' not found" 2>&1
-	echo "Hint: luav get $version" 2>&1
-	exit 1
 fi
 
 sudo make -C "versions/$version" uninstall -s

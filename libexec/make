@@ -1,25 +1,19 @@
 #!/usr/bin/env bash
 # 
-# Summary: Run make for a specific version of Lua
+# Summary: Run make for a version of Lua
 #
 # Usage: luav make <version> [<options...>]
 #
-# Hint: You can customize your compilation by setting the CFLAGS environment variable
+# Hint: You can set compiler flags through the CFLAGS environment variable
 #
 
 if [[ $# -ge 1 ]]
 then
+	checklocalversion "$1"
 	version=$1
 	shift
 else
 	usage
-fi
-
-if [[ ! -d versions/$version ]]
-then
-	echo "Version '$version' not found" 2>&1
-	echo "Hint: luav get $version" 2>&1
-	exit 1
 fi
 
 LUAVCFLAGS="$CFLAGS" make -C "versions/$version" "$@"

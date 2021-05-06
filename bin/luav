@@ -3,9 +3,6 @@
 # Exit on error
 set -e
 
-# Print usage information
-usage() { libexec/help "$(basename ${BASH_SOURCE[1]})" && exit 1; }
-
 # Get command
 if [[ $# -ge 1 ]]
 then
@@ -13,25 +10,48 @@ then
 	shift
 else
 	command=help
+	shift $#
 fi
 
 # Change directory to root
 cd "${BASH_SOURCE%/*}/.."
 
+# Print usage information and exit
+usage() { libexec/help "$(basename ${BASH_SOURCE[1]})" && exit 1; }
+
+# Check if version exists in the index
+hasversion() { libexec/all | grep -q -F "$1"; }
+
+# Check if version exists locally
+haslocalversion() { libexec/list | grep -q -F "$1"; }
+
+# Assert version exists locally
+checklocalversion() {
+	if ! haslocalversion "$1"
+	then
+		echo "Version '$1' not found locally" 2>&1
+		if hasversion "$1"
+		then
+			echo "Hint: luav get $1" 2>&1
+		fi
+		exit 1
+	fi
+}
+
 # Check that command is valid
 if echo "$command" | grep -q '[^a-z-]'
 then
-	echo "Command '$command' is invalid"
-	echo ""
+	printf "Command '%s' is invalid\n\n" "$command"
 	command=help
+	shift $#
 fi
 
 # Check that command exists
 if [[ ! -f libexec/$command ]]
 then
-	echo "Command '$command' doesn't exist"
-	echo ""
+	printf "Command '%s' doesn't exist\n\n" "$command"
 	command=help
+	shift $#
 fi
 
 source libexec/$command

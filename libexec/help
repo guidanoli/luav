@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Prints information about commands
+# Summary: Print information about a luav command or about all of them
 #
 # Usage: luav help [<command>]
 #
@@ -18,10 +18,12 @@ then
 
 	awk -f libexec/awk/help.awk "libexec/$command"
 else
-	echo "Usage: luav <command> [<args>]"
+	libexec/version
+	echo
+	echo "Usage: luav <command> [<args...>]"
 	echo "       luav help <command>"
 	echo "       luav help"
-	echo ""
+	echo
 	echo "Available commands:"
 
 	maxcmdlength=$(find libexec -maxdepth 1 -type f -regex 'libexec/[a-z-]*' | xargs -n1 basename | wc -L)

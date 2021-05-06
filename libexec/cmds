@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Lists all available commands
+# Summary: List all available luav commands
 #
 # Usage: luav commands
 #

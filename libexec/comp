@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Prints completion options for a command
+# Summary: Print completion options for a luav command
 #
 # Usage: luav comp <command> [<args...>]
 #
@@ -26,11 +26,11 @@ then
 		libexec/cmds
 		;;
 	esac
-elif [[ $# -eq 1 ]]
+elif [[ $# -ge 1 ]]
 then
 	case "$command" in
 	make )
-		if libexec/list | grep -q "^$1$"
+		if libexec/list | grep -q -F "$1"
 		then
 			libexec/tgts "$1"
 		fi

@@ -48,24 +48,27 @@ bash, curl, sudo, tar and UNIX commands
 
 ```sh
 $ luav help
-Usage: luav <command> [<args>]
+Lua Version Selector 1.1.4-5-g9831b01
+
+Usage: luav <command> [<args...>]
        luav help <command>
        luav help
 
 Available commands:
-     all  Lists all available versions of Lua
-    cmds  Lists all available commands
-    comp  Prints completion options for a command
-     doc  Read the documentation of a specific Lua Version
-     get  Download a specific version of Lua
-    help  Prints information about commands
-    info  Lists information about all available versions of Lua
-    init  Prints luav initialization code
-    list  Lists all downloaded versions of Lua
-    make  Run make for a specific version of Lua
-      rm  Remove Lua version
-     set  Sets a Lua version as default
-    tgts  Lists all main targets of a specific version of Lua
-   unset  Unsets a Lua version as default
-  update  Update index
+      all  List all indexed versions of Lua
+     cmds  List all available luav commands
+     comp  Print completion options for a luav command
+      doc  Browse through the offline documentation of a version of Lua
+      get  Download an indexed version of Lua
+     help  Print information about a luav command or about all of them
+     info  List information about all indexed versions of Lua
+     init  Print initialization code for autocomplete support
+     list  List all local versions of Lua
+     make  Run make for a version of Lua
+       rm  Remove a local version of Lua
+      set  Set a Lua version as default
+     tgts  List all main targets of a version of Lua
+    unset  Unset a Lua version as default
+   update  Update the version index
+  version  Print the current version of luav
 ```

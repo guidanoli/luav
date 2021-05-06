@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Summary: Lists all available versions of Lua
+# Summary: List all indexed versions of Lua
 #
 # Usage: luav all
 #
