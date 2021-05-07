@@ -6,4 +6,8 @@ BEGIN_TEST
 
 T 'bin/luav list' '' "$version"
 
+T 'mv versions tmp'
+T 'bin/luav list | wc -c' '' '0'
+T 'mv tmp versions'
+
 END_TEST

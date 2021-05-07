@@ -6,4 +6,13 @@ BEGIN_TEST
 
 T 'bin/luav info'
 
+T 'mv versions .versions'
+T 'bin/luav info | diff - .versions/.index'
+T 'mv .versions/* versions'
+T 'rm -rf .versions'
+
+T 'mv versions/.index versions/..index'
+T 'bin/luav info | diff - versions/..index'
+T 'mv versions/..index versions/.index'
+
 END_TEST

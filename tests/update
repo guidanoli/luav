@@ -4,6 +4,9 @@ source tests/framework
 
 BEGIN_TEST
 
+T 'rm -f versions/.index'
+T 'bin/luav update'
+
 T 'bin/luav update'
 
 END_TEST

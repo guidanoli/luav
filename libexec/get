@@ -41,17 +41,5 @@ rm -rf "versions/$version"
 mv "$tmpdir/$(ls -1 "$tmpdir")" "versions/$version"
 rm -rf "$tmpdir" "$file"
 
-makefile=""
-
-if [[ -f versions/$version/src/Makefile ]]
-then
-	makefile="versions/$version/src/Makefile"
-elif [[ -f versions/$version/Makefile ]]
-then
-	makefile="versions/$version/Makefile"
-fi
-
-if [[ ! -z $makefile ]]
-then
-	sed 's/^CFLAGS.*/\0 \$(LUAVCFLAGS)/' -i "$makefile"
-fi
+grep '^CFLAGS=' -r "versions/$version" -l -I | \
+	xargs sed 's/^CFLAGS=.*/\0 \$(LUAVCFLAGS)/' -i

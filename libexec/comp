@@ -17,13 +17,13 @@ if [[ $# -eq 0 ]]
 then
 	case "$command" in
 	get )
-		libexec/all
+		bin/luav all
 		;;
 	set | unset | make | rm | tgts | doc )
-		libexec/list
+		bin/luav list
 		;;
 	help | comp )
-		libexec/cmds
+		bin/luav cmds
 		;;
 	esac
 elif [[ $# -ge 1 ]]
@@ -32,7 +32,7 @@ then
 	make )
 		if libexec/list | grep -q -F "$1"
 		then
-			libexec/tgts "$1"
+			bin/luav tgts "$1"
 		fi
 		;;
 	esac	
