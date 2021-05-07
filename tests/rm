@@ -4,11 +4,11 @@ source tests/framework
 
 BEGIN_TEST
 
-F 'luav rm'
-F 'luav rm xyz'
-F 'luav rm $notversion'
+F 'bin/luav rm'
+F 'bin/luav rm xyz'
+F 'bin/luav rm $notversion'
 
-T 'luav rm $version'
-T 'luav get $version'
+T 'bin/luav rm $version'
+T 'bin/luav get $version'
 
 END_TEST
