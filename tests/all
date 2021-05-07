@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+exceptions=("$0" tests/framework)
+exceptions_patt=$(printf "|%s" "${exceptions[@]}")
+exceptions_patt="^(${exceptions_patt:1})$"
+
+for testbench in $(find tests -type f | \
+	grep '^tests/[a-zA-Z-]*$' | \
+	grep -E "$exceptions_patt" -v | sort)
+do
+	T "$testbench"
+done
+
+END_TEST

@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+
+# Exit on error
+set -e
+
+# T <command> [<stderr-pattern> [<stdout-pattern> [<message>]]]
+# asserts <command> succeeds
+# and that stderr matches <stderr-pattern>
+# and that stdout matches <stdout-pattern>
+# prints <message> with PASS or FAIL tag
+T()
+{
+	local command=$1
+	shift
+
+	local fd_dir=$(mktemp -d)
+	local stderr_file=$fd_dir/stderr
+	local stdout_file=$fd_dir/stdout
+
+	if [[ $# -gt 0 ]]
+	then
+		local stderr_pattern=$1
+		shift
+	else
+		local stderr_pattern=""
+	fi
+
+	if [[ $# -gt 0 ]]
+	then
+		local stdout_pattern=$1
+		shift
+	else
+		local stdout_pattern=""
+	fi
+
+	if [[ $# -gt 0 ]]
+	then
+		local message=$1
+		shift
+	else
+		local message=$command
+	fi
+
+	printf "[      ] $message"
+
+	print_fail_message() { echo -e "\r[ \e[1;31mFAIL\e[1;0m ] $message" ; }
+
+	tear_down()
+	{
+		[[ -s $stdout_file ]] && echo -e "\e[1;33mstdout\e[1;0m:" && cat "$stdout_file" | sed 's/^\(.*\r\)*/\t/'
+		[[ -s $stderr_file ]] && echo -e "\e[1;33mstderr\e[1;0m:" && cat "$stderr_file" | sed 's/^\(.*\r\)*/\t/'
+		rm -rf "$fd_dir"
+	}
+
+	if eval "$command" 1>"$stdout_file" 2>"$stderr_file"
+	then
+		if [[ ! -z $stderr_pattern ]] && ! (cat "$stderr_file" | grep -q -- "$stderr_pattern")
+		then
+			print_fail_message
+			echo "Standard error of command '$command' doesn't match pattern '$stderr_pattern'"
+			tear_down
+			return 1
+		fi
+		if [[ ! -z $stdout_pattern ]] && ! (cat "$stdout_file" | grep -q -- "$stdout_pattern")
+		then
+			print_fail_message
+			echo "Standard output of command '$command' doesn't match pattern '$stdout_pattern'"
+			tear_down
+			return 1
+		fi
+	else
+		local exitcode=$?
+		print_fail_message
+		echo "Exit code of command '$command' was $exitcode"
+		tear_down
+		return 1
+	fi
+	
+	echo -e "\r[ \e[1;32mPASS\e[1;0m ] $message"
+	rm -rf "$fd_dir"
+}
+
+# Print skip message
+# SKIP <message>
+SKIP()
+{
+	echo -e "[ \e[1;34mSKIP\e[1;0m ] $1"
+}
+
+# Asserts command fails
+# See function T
+F()
+{
+	local command=$1
+	shift
+
+	T "! ($command)" "$@"
+}
+
+# BEGIN_TEST
+BEGIN_TEST()
+{
+	echo "[ #### ] Test script: $0"
+	export starttime=$(date +%s.%N)
+}
+
+# END_TEST
+END_TEST()
+{
+	local endtime=$(date +%s.%N)
+	local runtime=$(echo "$endtime - $starttime" | bc -l)
+	echo "[ #### ] Total elapsed time: $runtime s"
+}
