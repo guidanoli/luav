@@ -28,35 +28,27 @@ fi
 
 if [[ $# -eq 0 ]]
 then
-	exceptions=(tests/framework)
-	exceptions_patt=$(printf "|%s" "${exceptions[@]}")
-	exceptions_patt="^(${exceptions_patt:1})$"
-
-	for testbench in $(find tests -type f | \
-		grep '^tests/[a-zA-Z-]*$' | \
-		grep -E "$exceptions_patt" -v | sort)
-	do
-		T "$testbench"
-	done
+	commands=$(libexec/cmds)
 else
-	for cmd in "$@"
-	do
-		if ! libexec/cmds | grep -qF "$cmd"
-		then
-			echo "Command '$cmd' does not exist" 2>&1
-			END_TEST
-			exit 1
-		fi
-
-		if [[ ! -f tests/$cmd ]]
-		then
-			echo "Test for command '$cmd' is missing" 2>&1
-			END_TEST
-			exit 1
-		fi
-
-		T "tests/$cmd"
-	done
+	commands="$@"
 fi
+
+for cmd in $commands
+do
+	if ! libexec/cmds | grep -qF "$cmd"
+	then
+		echo "Command '$cmd' does not exist" 2>&1
+		END_TEST
+		exit 1
+	fi
+
+	if [[ ! -f tests/$cmd ]]
+	then
+		echo "Test for command '$cmd' is missing" 2>&1
+		continue
+	fi
+
+	T "tests/$cmd"
+done
 
 END_TEST
