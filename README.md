@@ -34,7 +34,7 @@ and modified for Lua.
 
 ```sh
 $ luav help
-Lua Version Selector 1.1.4-5-g9831b01
+Lua Version Selector 1.1.5
 
 Usage: luav <command> [<args...>]
        luav help <command>
@@ -44,7 +44,7 @@ Available commands:
       all  List all indexed versions of Lua
      cmds  List all available luav commands
      comp  Print completion options for a luav command
-      doc  Browse through the offline documentation of a version of Lua
+      doc  Browse through the manual of a version of Lua
       get  Download an indexed version of Lua
      help  Print information about a luav command or about all of them
      info  List information about all indexed versions of Lua
@@ -53,6 +53,7 @@ Available commands:
      make  Run make for a version of Lua
        rm  Remove a local version of Lua
       set  Set a Lua version as default
+     test  Run unit tests for luav commands
      tgts  List all main targets of a version of Lua
     unset  Unset a Lua version as default
    update  Update the version index
