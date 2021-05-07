@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+#
+# Summary: Run unit tests for luav commands
+#
+# Usage: luav test [<commands...>]
+#
+# Note: If <commands...> is missing, all commands will be tested
+# Note: This might mess with your local versions
+#
+
+source tests/framework
+
+BEGIN_TEST
+
+export version=5.4.2
+
+if ! bin/luav list | grep -qF "$version"
+then
+	T 'bin/luav get $version'
+fi
+
+export notversion=1.0
+
+if bin/luav list | grep -qF "$notversion"
+then
+	T 'bin/luav rm $notversion'
+fi
+
+if [[ $# -eq 0 ]]
+then
+	exceptions=(tests/framework)
+	exceptions_patt=$(printf "|%s" "${exceptions[@]}")
+	exceptions_patt="^(${exceptions_patt:1})$"
+
+	for testbench in $(find tests -type f | \
+		grep '^tests/[a-zA-Z-]*$' | \
+		grep -E "$exceptions_patt" -v | sort)
+	do
+		T "$testbench"
+	done
+else
+	for cmd in "$@"
+	do
+		if ! libexec/cmds | grep -qF "$cmd"
+		then
+			echo "Command '$cmd' does not exist" 2>&1
+			END_TEST
+			exit 1
+		fi
+
+		if [[ ! -f tests/$cmd ]]
+		then
+			echo "Test for command '$cmd' is missing" 2>&1
+			END_TEST
+			exit 1
+		fi
+
+		T "tests/$cmd"
+	done
+fi
+
+END_TEST

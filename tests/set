@@ -4,6 +4,8 @@ source tests/framework
 
 BEGIN_TEST
 
-T 'bin/luav all' '' "$version"
+F 'bin/luav set'
+F 'bin/luav set xyz'
+F 'bin/luav set $notversion'
 
 END_TEST

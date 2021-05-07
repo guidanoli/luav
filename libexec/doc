@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# Summary: Browse through the offline documentation of a version of Lua
+# Summary: Browse through the manual of a version of Lua
 #
 # Usage: luav doc <version>
 #
@@ -16,27 +16,12 @@ else
 	usage
 fi
 
-docs="$(find "versions/$version/doc" -name "*.html" -type f | sort)"
+manual=versions/$version/doc/manual.html
 
-echo "$docs" | awk '{ printf("[ %d ] %s\n", NR, $0) }'
-read -p "Choose a document to read: " option
-
-nr=`echo "$docs" | wc -l`
-
-if [[ ! -z $option ]]
+if [[ -f $manual ]]
 then
-	if ! [[ $option =~ ^[0-9]+$ ]]
-	then
-		echo "Input is not a number" 2>&1
-		exit 1
-	fi
-
-	if [[ $option -lt 1 ]] || [[ $option -gt $nr ]]
-	then
-		echo "Input is out of range" 2>&1
-		exit 1
-	fi
-
-	doc=`echo "$docs" | head -"$option" | tail -1`
-	${BROWSER:-firefox} "$doc"
+	${BROWSER:-firefox} "$manual"
+else
+	echo "Version $version does not contain manual" 2>&1
+	exit 1
 fi

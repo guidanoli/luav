@@ -4,6 +4,6 @@ source tests/framework
 
 BEGIN_TEST
 
-T 'bin/luav all' '' "$version"
+T 'bin/luav update'
 
 END_TEST

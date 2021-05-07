@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+F 'bin/luav unset'
+F 'bin/luav unset xyz'
+F 'bin/luav unset $notversion'
+
+T 'bin/luav make $version'
+T 'bin/luav set $version'
+T 'bin/luav unset $version'
+
+END_TEST

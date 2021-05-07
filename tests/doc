@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+T 'BROWSER=echo bin/luav doc $version' '' '\.html$'
+F 'bin/luav doc'
+F 'bin/luav doc xyz'
+
+END_TEST

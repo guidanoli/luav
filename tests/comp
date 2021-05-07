@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+for cmd in `bin/luav cmds`
+do
+	T "bin/luav comp $cmd"
+done
+
+F "bin/luav comp"
+
+END_TEST

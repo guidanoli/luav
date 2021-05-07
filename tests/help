@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+T 'bin/luav'
+T 'bin/luav help'
+T 'bin/luav help help'
+F 'bin/luav help xyz'
+T 'bin/luav xyz'
+T 'bin/luav xyz xyz'
+T 'bin/luav cmd1'
+F 'bin/luav help cmd1'
+
+END_TEST

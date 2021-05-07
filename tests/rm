@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+source tests/framework
+
+BEGIN_TEST
+
+F 'luav rm'
+F 'luav rm xyz'
+F 'luav rm $notversion'
+
+T 'luav rm $version'
+T 'luav get $version'
+
+END_TEST

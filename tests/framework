@@ -100,7 +100,7 @@ F()
 # BEGIN_TEST
 BEGIN_TEST()
 {
-	echo "[ #### ] Test script: $0"
+	echo "[ #### ] Test script: ${BASH_SOURCE[1]}"
 	export starttime=$(date +%s.%N)
 }
 

@@ -4,6 +4,8 @@ source tests/framework
 
 BEGIN_TEST
 
-T 'bin/luav all' '' "$version"
+F 'bin/luav make'
+F 'bin/luav make xyz'
+T 'bin/luav make $version'
 
 END_TEST
