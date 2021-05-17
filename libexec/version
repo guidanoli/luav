@@ -5,7 +5,7 @@
 # Usage: luav version
 #
 
-hardrev="1.1.4"
+hardrev="1.1.5"
 gitrev=""
 
 if git remote -v 2>/dev/null | grep -q luav

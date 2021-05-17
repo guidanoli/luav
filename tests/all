@@ -4,6 +4,12 @@ source tests/framework
 
 BEGIN_TEST
 
-T 'bin/luav all' '' "$version"
+for available_version in `bin/luav all`
+do
+	T "bin/luav get $available_version"
+	T "bin/luav rm $available_version"
+done
+
+T 'bin/luav get $version'
 
 END_TEST
