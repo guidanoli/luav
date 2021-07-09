@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# Summary: Run unit tests for luav commands
+# Summary: Run luav unit tests (might mess up local versions)
 #
 # Usage: luav test [<commands...>]
 #
 # Note: If <commands...> is missing, all commands will be tested
-# Note: This might mess with your local versions
+# Note: This might delete, modify or add local versions of Lua
 #
 
 source tests/framework

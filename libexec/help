@@ -4,6 +4,8 @@
 #
 # Usage: luav help [<command>]
 #
+# Note: If <command> is missing, prints information about all commands
+#
 
 if [[ $# -ge 1 ]]
 then
@@ -21,8 +23,7 @@ else
 	libexec/version
 	echo
 	echo "Usage: luav <command> [<args...>]"
-	echo "       luav help <command>"
-	echo "       luav help"
+	echo "       luav help [<command>]"
 	echo
 	echo "Available commands:"
 
