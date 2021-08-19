@@ -22,7 +22,6 @@ and modified for Lua.
 * [bash](https://www.gnu.org/software/bash/)
 * [curl](https://curl.se/)
 * [tar](https://en.wikipedia.org/wiki/Tar_(computing))
-* [sudo](https://www.sudo.ws/)
 
 ## Setup
 
