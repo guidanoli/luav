@@ -4,6 +4,9 @@
 #
 # Usage: luav set <version>
 #
+# Hint: You can select other 'super user do' program by setting the SUDO environment variable
+# Hint: This defaults to sudo, found in most Linux distros
+#
 
 if [[ $# -ge 1 ]]
 then
@@ -14,4 +17,4 @@ else
 	usage
 fi
 
-sudo make -C "versions/$version" install -s
+${SUDO:-sudo} make -C "versions/$version" install -s
