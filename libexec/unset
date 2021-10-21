@@ -5,6 +5,8 @@
 # Usage: luav unset <version>
 #
 # Hint: Some older versions of Lua don't support this feature
+# Hint: You can select other 'super user do' program by setting the SUDO environment variable
+# Hint: This defaults to sudo, found in most Linux distros
 #
 
 if [[ $# -ge 1 ]]
@@ -16,4 +18,4 @@ else
 	usage
 fi
 
-sudo make -C "versions/$version" uninstall -s
+${SUDO:-sudo} make -C "versions/$version" uninstall -s
