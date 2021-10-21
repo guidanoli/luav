@@ -27,18 +27,43 @@ and modified for Lua.
 ## Setup
 
 1. Clone this repository anywhere
+
+   ```sh
+   git clone https://github.com/guidanoli/luav.git ~/.luav
+   ```
+
 2. Add the `bin` folder to your `PATH` variable
+
+   ```sh
+   echo 'export LUAV_ROOT="$HOME/.luav"' >> ~/.bashrc
+   echo 'export PATH="$LUAV_ROOT/bin:$PATH"' >> ~/.bashrc
+   ```
+
 3. Run `eval "$(luav init)"` for autocomplete support
 
-## Commands
+   ```sh
+   echo 'eval "$(luav init)"' >> ~/.bashrc
+   ```
+
+## Example
+
+The following lines show how you would install Lua 5.4.3 on Linux.
 
 ```sh
-$ luav help
+luav get 5.4.3                  # Download source code from lua.org
+luav make 5.4.3 linux-readline  # Compile source code locally
+luav set 5.4.3                  # Install binaries and manuals
+```
+
+## Usage
+
+Upon running `luav help`, the following text is yielded.
+
+```sh
 Lua Version Selector 1.1.5
 
 Usage: luav <command> [<args...>]
-       luav help <command>
-       luav help
+       luav help [<command>]
 
 Available commands:
       all  List all indexed versions of Lua
