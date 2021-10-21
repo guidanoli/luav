@@ -12,5 +12,5 @@ if [[ -f $shellfile ]]
 then
 	echo "source \"$PWD/$shellfile\""
 else
-	echo "echo \"luav: found no completion for '$shell' shell\" 2>&1"
+	echo "echo \"luav: found no completion for '$shell' shell\" >&2"
 fi

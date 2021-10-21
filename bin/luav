@@ -29,10 +29,10 @@ haslocalversion() { libexec/list | grep -q -F "$1"; }
 checklocalversion() {
 	if ! haslocalversion "$1"
 	then
-		echo "Version '$1' not found locally" 2>&1
+		echo "Version '$1' not found locally" >&2
 		if hasversion "$1"
 		then
-			echo "Hint: luav get $1" 2>&1
+			echo "Hint: luav get $1" >&2
 		fi
 		exit 1
 	fi
@@ -41,7 +41,7 @@ checklocalversion() {
 # Check that command is valid
 if echo "$command" | grep -q '[^a-z-]'
 then
-	printf "Command '%s' is invalid\n\n" "$command"
+	printf "Command '%s' is invalid\n\n" "$command" >&2
 	command=help
 	shift $#
 fi
@@ -49,7 +49,7 @@ fi
 # Check that command exists
 if [[ ! -f libexec/$command ]]
 then
-	printf "Command '%s' doesn't exist\n\n" "$command"
+	printf "Command '%s' doesn't exist\n\n" "$command" >&2
 	command=help
 	shift $#
 fi

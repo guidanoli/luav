@@ -23,6 +23,6 @@ if [[ -f $manual ]]
 then
 	${BROWSER:-firefox} "$manual"
 else
-	echo "Version $version does not contain manual" 2>&1
+	echo "Version $version does not contain manual" >&2
 	exit 1
 fi

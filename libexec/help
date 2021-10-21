@@ -14,7 +14,7 @@ then
 
 	if [[ ! -f libexec/$command ]]
 	then
-		echo "Command '$command' doesn't exist" 2>&1
+		echo "Command '$command' doesn't exist" >&2
 		exit 1
 	fi
 

@@ -17,8 +17,8 @@ mkdir -p versions
 
 if ! hasversion "$version"
 then
-	echo "Version '$version' not available" 2>&1
-	echo "Hint: luav update"
+	echo "Version '$version' not available" >&2
+	echo "Hint: luav update" >&2
 	exit 1
 fi
 

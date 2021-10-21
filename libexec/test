@@ -37,14 +37,14 @@ for cmd in $commands
 do
 	if ! libexec/cmds | grep -qF "$cmd"
 	then
-		echo "Command '$cmd' does not exist" 2>&1
+		echo "Command '$cmd' does not exist" >&2
 		END_TEST
 		exit 1
 	fi
 
 	if [[ ! -f tests/$cmd ]]
 	then
-		echo "Test for command '$cmd' is missing" 2>&1
+		echo "Test for command '$cmd' is missing" >&2
 		continue
 	fi
 
