@@ -59,7 +59,7 @@ luav set 5.4.3                  # Install binaries and manuals
 Upon running `luav help`, the following text is yielded.
 
 ```sh
-Lua Version Selector 1.1.5
+Lua Version Selector 1.1.6
 
 Usage: luav <command> [<args...>]
        luav help [<command>]
