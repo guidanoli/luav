@@ -8,6 +8,8 @@ F 'bin/luav set'
 F 'bin/luav set xyz'
 F 'bin/luav set $notversion'
 
+T "SUDO=echo bin/luav set $version | grep -qF 'make -C versions/$version install -s'"
+
 T 'bin/luav make $version -j "$(nproc)"'
 T 'bin/luav set $version'
 T "lua -v | grep -qF $version"
