@@ -3,7 +3,7 @@
 <img align="right" width="200" src="logo.png">
 
 luav lets you download, build and install multiple versions of Lua.
-It is meant to be very portable among UNIX-like systems.
+It is meant to be very portable among GNU/Linux systems.
 It was also inspired by [pyenv](https://github.com/pyenv/pyenv),
 and modified for Lua.
 
