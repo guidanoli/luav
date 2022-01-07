@@ -18,9 +18,9 @@ It is meant to be very portable among systems running GNU/Linux.
 
 ## Dependencies
 
-* [bash](https://www.gnu.org/software/bash/)
+Besides those most likely pre-installed in any Linux distro:
+
 * [curl](https://curl.se/)
-* [tar](https://en.wikipedia.org/wiki/Tar_(computing))
 
 ## Setup
 
@@ -33,6 +33,7 @@ It is meant to be very portable among systems running GNU/Linux.
 2. Add the `bin` folder to your `PATH` variable
 
    ```sh
+   echo >> ~/.bashrc
    echo 'export LUAV_ROOT="$HOME/.luav"' >> ~/.bashrc
    echo 'export PATH="$LUAV_ROOT/bin:$PATH"' >> ~/.bashrc
    ```
@@ -47,7 +48,7 @@ It is meant to be very portable among systems running GNU/Linux.
 
 The following lines show how you would install Lua 5.4.3 on Linux.
 
-```sh
+```
 luav get 5.4.3                  # Download source code from lua.org
 luav make 5.4.3 linux-readline  # Compile source code locally
 luav set 5.4.3                  # Install binaries and manuals
@@ -76,7 +77,7 @@ Available commands:
      make  Run make for a version of Lua
        rm  Remove a local version of Lua
       set  Set a Lua version as default
-     test  Run unit tests for luav commands
+     test  Run luav unit tests (might mess up local versions)
      tgts  List all main targets of a version of Lua
     unset  Unset a Lua version as default
    update  Update the version index
