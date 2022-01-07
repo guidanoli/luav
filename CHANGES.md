@@ -4,6 +4,10 @@
 
 ## 1.1
 
+### 1.1.7
+
+* Rewrote some documentation
+
 ### 1.1.6
 
 * Allowed for other sudo-like commands in "set" command
