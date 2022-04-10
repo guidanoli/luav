@@ -2,6 +2,8 @@
 
 ## Upcoming release
 
+* Update luav to new HTML table layout
+
 ## 1.1
 
 ### 1.1.7

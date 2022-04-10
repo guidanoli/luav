@@ -25,14 +25,12 @@ fi
 file=lua-$version.tar.gz
 curl -s -R -O "http://www.lua.org/ftp/$file"
 
-if command -v md5sum > /dev/null
+if command -v sha256sum > /dev/null
 then
-	libexec/info | awk -v "FILE=$file" '$1 == FILE { print $3, $1 }' | md5sum -c --quiet
-fi
-
-if command -v sha1sum > /dev/null
-then
-	libexec/info | awk -v "FILE=$file" '$1 == FILE { print $2, $1 }' | sha1sum -c --quiet
+	libexec/info | awk -v "FILE=$file" '$1 == FILE { print $2, $1 }' | sha256sum -c --quiet
+else
+	echo "Error: Cannot check SHA-256 digest of file because program 'sha256sum' is missing" >&2
+	exit 1
 fi
 
 tmpdir=$(mktemp -d)
