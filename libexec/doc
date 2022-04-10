@@ -5,7 +5,7 @@
 # Usage: luav doc <version>
 #
 # Hint: You can select other browser by setting the BROWSER environment variable
-# Hint: The default browser is firefox, found in most Linux distros
+# Hint: The default browser is firefox, found in most GNU/Linux distros
 #
 
 if [[ $# -ge 1 ]]

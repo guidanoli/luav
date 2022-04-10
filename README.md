@@ -11,14 +11,14 @@ It is meant to be very portable among systems running GNU/Linux.
 * download any version of Lua from [lua.org](https://www.lua.org)
 
   * all information about versions of Lua is scrapped from [lua.org/ftp](https://lua.org/ftp).
-  * tarballs are checked with [`md5sum`](https://man7.org/linux/man-pages/man1/md5sum.1.html) and [`sha1sum`](https://man7.org/linux/man-pages/man1/sha1sum.1.html)
+  * tarballs are checked with [`sha256sum`](https://man7.org/linux/man-pages/man1/sha256sum.1.html)
 
 * build Lua from source with any compiler flags
 * install and uninstall versions
 
 ## Dependencies
 
-Besides those most likely pre-installed in any Linux distro:
+Besides those most likely pre-installed in any GNU/Linux distro:
 
 * [curl](https://curl.se/)
 
@@ -46,12 +46,12 @@ Besides those most likely pre-installed in any Linux distro:
 
 ## Example
 
-The following lines show how you would install Lua 5.4.3 on Linux.
+The following lines show how you would install Lua 5.4.4 on GNU/Linux.
 
 ```
-luav get 5.4.3                  # Download source code from lua.org
-luav make 5.4.3 linux-readline  # Compile source code locally
-luav set 5.4.3                  # Install binaries and manuals
+luav get 5.4.4                  # Download source code from lua.org
+luav make 5.4.4 linux-readline  # Compile source code locally
+luav set 5.4.4                  # Install binaries and manuals
 ```
 
 ## Usage

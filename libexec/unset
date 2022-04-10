@@ -6,7 +6,7 @@
 #
 # Hint: Some older versions of Lua don't support this feature
 # Hint: You can select other 'super user do' program by setting the SUDO environment variable
-# Hint: This defaults to sudo, found in most Linux distros
+# Hint: This defaults to sudo, found in most GNU/Linux distros
 #
 
 if [[ $# -ge 1 ]]
