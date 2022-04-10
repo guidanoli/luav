@@ -5,7 +5,7 @@
 # Usage: luav set <version>
 #
 # Hint: You can select other 'super user do' program by setting the SUDO environment variable
-# Hint: This defaults to sudo, found in most Linux distros
+# Hint: This defaults to sudo, found in most GNU/Linux distros
 #
 
 if [[ $# -ge 1 ]]
