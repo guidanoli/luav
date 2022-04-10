@@ -12,7 +12,7 @@ source tests/framework
 
 BEGIN_TEST
 
-export version=5.4.2
+export version=5.4.4
 
 if ! bin/luav list | grep -qF "$version"
 then
