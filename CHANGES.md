@@ -2,7 +2,13 @@
 
 ## Upcoming release
 
+## 1.2
+
+### 1.2.0
+
 * Update luav to new HTML table layout
+* Require `sha256sum` for checking data integrity
+* Drop usage of `md5sum` and `sha1sum`
 
 ## 1.1
 
