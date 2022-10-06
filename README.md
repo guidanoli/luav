@@ -49,7 +49,7 @@ Besides those most likely pre-installed in any GNU/Linux distro:
 
 ## Example
 
-The following lines show how you would install Lua 5.4.4 on GNU/Linux.
+The following lines show how you would install Lua 5.4.4 with readline on GNU/Linux.
 
 ```
 luav get 5.4.4                  # Download source code from lua.org
