@@ -20,6 +20,8 @@ It is meant to be very portable among systems running GNU/Linux.
 
 Besides those most likely pre-installed in any GNU/Linux distro:
 
+* GNU make
+* GNU awk
 * [curl](https://curl.se/)
 
 ## Setup
