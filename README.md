@@ -22,6 +22,7 @@ Besides those most likely pre-installed in any GNU/Linux distro:
 
 * GNU make
 * GNU awk
+* GNU compiler collection (gcc)
 * [curl](https://curl.se/)
 
 ## Setup
