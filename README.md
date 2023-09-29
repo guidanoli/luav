@@ -49,12 +49,14 @@ Besides those most likely pre-installed in any GNU/Linux distro:
 
 ## Example
 
-The following lines show how you would install Lua 5.4.4 with readline on GNU/Linux.
+The following lines show how you would install the latest version of Lua with libreadline on GNU/Linux.
 
-```
-luav get 5.4.4                  # Download source code from lua.org
-luav make 5.4.4 linux-readline  # Compile source code locally
-luav set 5.4.4                  # Install binaries and manuals
+```sh
+luav update                                  # Update the internal version index
+latest=`luav all | head -n1`                 # Get the latest version of Lua
+luav get $latest                             # Download source code from lua.org
+luav make $latest linux-readline -j `nproc`  # Compile source code locally with libreadline
+luav set $latest                             # Install binaries and manuals
 ```
 
 ## Usage
