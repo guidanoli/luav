@@ -23,7 +23,7 @@ then
 fi
 
 file=lua-$version.tar.gz
-curl -s -R -O "http://www.lua.org/ftp/$file"
+curl -s -R -O "https://www.lua.org/ftp/$file"
 
 if command -v sha256sum > /dev/null
 then
